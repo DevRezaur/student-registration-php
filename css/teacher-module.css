@@ -16,12 +16,15 @@ body {
   overflow-x: hidden;
 }
 
-/* Top Section */
-.top-section {
+.wrapper {
   min-height: -moz-calc(100vh - 136px);
   min-height: -webkit-calc(100vh - 136px);
   min-height: -o-calc(100vh - 136px);
   min-height: calc(100vh - 136px);
+}
+
+/* Top Section */
+.top-section {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
@@ -30,6 +33,7 @@ body {
   grid-template-areas:
     "left-div"
     "right-div";
+  border-bottom: 1px solid #f5f5f5;
 }
 
 @media screen and (min-width: 800px) {

@@ -70,63 +70,69 @@
     </nav>
     <!-- Navbar End -->
     
-    <!-- Top Container Start -->
-    <section class="top-section container px-3 pt-5 py-3">
-        <div class="left-div">
-            <img src="./image/co_worker.svg" alt="image">
-        </div>
-        <div class="right-div">
-            <h1>Teacher's Module</h1>
-            <p>Welcome to teacher's module. Here you can view the current status of student registration
-                process. Just select a slot and press the button to view the list of enrolled students of that slot.
-            </p>
-            <form method="GET">
-                <div class="input-group mb-3">
-                    <label class="input-group-text" for="slotSelect">Slots</label>
-                    <select class="form-select" id="slotSelect" name="slotSelect">
-                        <option value="1">Slot 01</option>
-                        <option value="2">Slot 02</option>
-                        <option value="3">Slot 03</option>
-                        <option value="4">Slot 04</option>
-                    </select>
-                    <button type="submit" name="view" class="btn btn-dark">View Info</button>
-                </div>
-            </form>
-        </div>
-    </section>
-    <!-- Top Container End -->
+    <!-- Wrapper Start -->
+    <div class="wrapper">
 
-    <!-- Display Container Start -->
-        <?php
-            if($result) {
-        ?>
-        <section class="display-section px-3 py-5">
-            <h3 class="text-secondary mb-5 text-center">Student Info</h3>
-            <table class="bg-dark text-light mx-auto">
-                <tr>
-                    <th class="bg-warning text-dark">ID</th>
-                    <th class="bg-warning text-dark">Fullname</th>
-                    <th class="bg-warning text-dark optional">Nick Name</th>
-                    <th class="bg-warning text-dark optional">Email</th>
-                    <th class="bg-warning text-dark optional">Slot</th>
-                </tr>
+        <!-- Top Container Start -->
+        <section class="top-section container px-3 py-5">
+            <div class="left-div">
+                <img src="./image/co_worker.svg" alt="image">
+            </div>
+            <div class="right-div">
+                <h1>Teacher's Module</h1>
+                <p>Welcome to teacher's module. Here you can view the current status of student registration
+                    process. Just select a slot and press the button to view the list of enrolled students of that slot.
+                </p>
+                <form method="GET">
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="slotSelect">Slots</label>
+                        <select class="form-select" id="slotSelect" name="slotSelect">
+                            <option value="1">Slot 01</option>
+                            <option value="2">Slot 02</option>
+                            <option value="3">Slot 03</option>
+                            <option value="4">Slot 04</option>
+                        </select>
+                        <button type="submit" name="view" class="btn btn-dark">View Info</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <!-- Top Container End -->
+
+        <!-- Display Container Start -->
             <?php
-                foreach($studentList as $std) {
-                    echo '<tr>';
-                        echo '<td>' . $std->sId . '</td>';
-                        echo '<td>' . $std->fullname . '</td>';
-                        echo '<td class="optional">' . $std->nickName . '</td>';
-                        echo '<td class="optional">' . $std->email . '</td>';
-                        echo '<td class="optional">' . $std->slot . '</td>';
-                    echo '</tr>';
+                if($result) {
+            ?>
+            <section class="display-section px-3 py-5">
+                <h3 class="text-secondary mb-5 text-center">Student Info</h3>
+                <table class="bg-dark text-light mx-auto">
+                    <tr>
+                        <th class="bg-warning text-dark">ID</th>
+                        <th class="bg-warning text-dark">Fullname</th>
+                        <th class="bg-warning text-dark optional">Nick Name</th>
+                        <th class="bg-warning text-dark optional">Email</th>
+                        <th class="bg-warning text-dark optional">Slot</th>
+                    </tr>
+                <?php
+                    foreach($studentList as $std) {
+                        echo '<tr>';
+                            echo '<td>' . $std->sId . '</td>';
+                            echo '<td>' . $std->fullname . '</td>';
+                            echo '<td class="optional">' . $std->nickName . '</td>';
+                            echo '<td class="optional">' . $std->email . '</td>';
+                            echo '<td class="optional">' . $std->slot . '</td>';
+                        echo '</tr>';
+                    }
+                ?>
+                </table>
+            </section>
+            <?php
                 }
             ?>
-            </table>
-        </section>
-        <?php
-            }
-        ?>
-    <!-- Display Container End -->
+        <!-- Display Container End -->
+
+    </div>
+    <!-- Wrapper End -->
 
     <!-- Footer Start -->
     <footer class="bg-dark">
